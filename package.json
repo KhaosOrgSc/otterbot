@@ -1,0 +1,16 @@
+{
+  "name": "otter-bot",
+  "version": "1.0.0",
+  "description": "OtterBot",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": {
+    "name": "LordMalloc"
+  },
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "hashmap": "^2.3.0"
+  }
+}
