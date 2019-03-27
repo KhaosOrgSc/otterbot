@@ -14,7 +14,11 @@ OtterBot allows you to link to your own hosted images and use them as emojis on 
 
 ##### How to install this awesome bot.
 
-1. docker pull khaosorg/otterbot
+1. Download the image for Docker.
+
+```
+docker pull khaosorg/otterbot
+```
 
 2. Get your Discord bot token and place it in a config.json file as so;
 
@@ -24,6 +28,7 @@ OtterBot allows you to link to your own hosted images and use them as emojis on 
   "prefix":  "!o"
 }
 ```
+
 3. Map your newly created config.json file to the docker volume;
 
 ```
