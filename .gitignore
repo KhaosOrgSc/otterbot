@@ -59,3 +59,18 @@ typings/
 
 # next.js build output
 .next
+/.vs/otterbot/v15/.suo
+/.vs/config/applicationhost.config
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite
+/.vs/ProjectSettings.json
+/bin/Microsoft.NodejsTools.WebRole.dll
+/obj/Debug/OtterBot.njsprojAssemblyReference.cache
+/obj/Debug/OtterBot.njsproj.FileListAbsolute.txt
+/obj/Debug/OtterBot.njsproj.CoreCompileInputs.cache
+/.OtterBot.sln.un~
+/OtterBot.njsproj
+/OtterBot.sln
+/OtterBot.sln.DotSettings.user
+/OtterBot.sln~
+/package-lock.json

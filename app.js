@@ -3,18 +3,9 @@ const client = new Discord.Client()
 
 const config = require("./config.json");
 
-var HashMap = require('hashmap');
 
-var emoji = new HashMap();
-emoji.set("tired", "https://cdn.discordapp.com/attachments/468033427598344203/558571167678726154/458659_key2x.png");
-emoji.set("love", "https://cdn.discordapp.com/attachments/468033427598344203/558570393183715328/6562741_key2x.png");
-emoji.set("tea", "https://cdn.discordapp.com/attachments/468033427598344203/557850712273584138/458674_key2x.png");
-emoji.set("morning", "https://cdn.discordapp.com/attachments/468033427598344203/556814081906966557/11530032_key2x.png");
-emoji.set("drool", "https://cdn.discordapp.com/attachments/510599531180589056/557555106778841088/458681_key2x.png");
-emoji.set("cry", "https://cdn.discordapp.com/attachments/468033427598344203/556054027872501760/2160636_key2x.png");
-emoji.set("hungry", "https://cdn.discordapp.com/attachments/468033427598344203/555437990332071946/Hunga.png");
-emoji.set("fire", "https://cdn.discordapp.com/attachments/468033427598344203/554252251192098816/68525_key2x.png");
 
+var commands = require('./commands/commands.js');
 
 client.on("ready", () => {
     console.log(`Bot has started.`);
@@ -23,28 +14,26 @@ client.on("ready", () => {
 client.on('message', message => {
     if (message.content.indexOf(config.prefix) !== 0) return;
 
-    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
+    var args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    const command = args[0];
 
     if (command === "help") {
-        showHelp(message);
+        showHelp(message, commands);
         return;
     }
 
-    var url = emoji.get(command);
-    if (url) {
-        const embed = new Discord.RichEmbed().setImage(url)
-        //message.channel.sendEmbed(embed)
-        message.channel.sendFile(url, "")
-    } else {
-	    message.channel.send("ZOINK! Thats not a command. Need help? Try " + config.prefix + " help");
+    var handler = commands.findHandler(command);
+    if (handler) {
+        handler.handle(args, message);
     }
+
 });
 
 function showHelp(message) {
     var response = "Hello! I know about the following commands!\n";
-    emoji.forEach(function(value, key) {
-        response += "   " + key + "\n";
+    response += "Try \"" + config.prefix + " <command> help\" for more detailed help.\n";
+    commands.items.forEach(function (item) { 
+        response += "   " + item.name + "\n";
     });
 
     message.channel.send(response);
