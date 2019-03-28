@@ -27,6 +27,7 @@ module.exports = {
         if (images) {
             var url = images[Math.floor(Math.random() * images.length)];
             message.channel.sendFile(url, "")
+            message.delete().catch(console.error);
         } else {
             message.channel.send("ZOINK! Thats not a command. Need help? Try \"help\" !");
         }
