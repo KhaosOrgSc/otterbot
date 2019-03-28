@@ -12,7 +12,7 @@ emoji.set("tea", "https://cdn.discordapp.com/attachments/468033427598344203/5578
 emoji.set("morning", "https://cdn.discordapp.com/attachments/468033427598344203/556814081906966557/11530032_key2x.png");
 emoji.set("drool", "https://cdn.discordapp.com/attachments/510599531180589056/557555106778841088/458681_key2x.png");
 emoji.set("cry", "https://cdn.discordapp.com/attachments/468033427598344203/556054027872501760/2160636_key2x.png");
-emoji.set("hungry", "https://cdn.discordapp.com/attachments/468033427598344203/555437990332071946/Hunga.png");
+emoji.set("hungry", ["https://i.imgur.com/9h9MJV0.png", "https://i.imgur.com/ArIZMPM.png", "https://i.imgur.com/B2z2nZ2.png", "https://i.imgur.com/24tFlBK.png", "https://i.imgur.com/TbIAa4N.png"]);
 emoji.set("fire", "https://cdn.discordapp.com/attachments/468033427598344203/554252251192098816/68525_key2x.png");
 
 
