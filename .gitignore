@@ -76,7 +76,6 @@ typings/
 /OtterBot.sln
 /OtterBot.sln.DotSettings.user
 /OtterBot.sln~
-/package-lock.json
 
 # User-specific files
 *.rsuser
