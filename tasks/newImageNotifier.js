@@ -35,8 +35,7 @@ function run() {
     var lastUpdated;
     setInterval(function() {
             dockerHubAPI.repository(config.imageuser, config.imagename).then(function(info) {
-                    console.log(info);
-                    var update = new Date(info.last_updated);
+                var update = new Date(info.last_updated);
 
                 if (lastUpdated === undefined) {
                         lastUpdated = update;
@@ -56,7 +55,7 @@ function run() {
                 })
                 .catch(console.error);
         },
-        config.interval * 1000);
+        config.interval * 60 * 1000);
 }
 
 function sendMsg(client, msg) {
