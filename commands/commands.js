@@ -1,4 +1,5 @@
 var emoji = require('./emoji/command')
+
 var items = [
     emoji
 ]

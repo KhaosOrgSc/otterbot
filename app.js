@@ -3,11 +3,15 @@ const client = new Discord.Client()
 
 const config = require("./config.json");
 
-
+// init tasks
+const imageNotify = require('./tasks/newImageNotifier.js');
 
 var commands = require('./commands/commands.js');
 
 client.on("ready", () => {
+    imageNotify.initialize(client);
+    imageNotify.start();
+
     console.log(`Bot has started.`);
 });
 
