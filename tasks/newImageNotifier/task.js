@@ -26,7 +26,7 @@ function init() {
 
         console.log(' ID: ' + id + ' Username: ' + username + ' isAdmin: ' + isAdmin);
         sendMsg(discordClient, "Logged into DockerHub.\n" +
-            "Listening for updates to " + config.imageuser + '/' + config.imagename + ' every ' + config.interval + " seconds.");
+            "Listening for updates to " + config.imageuser + '/' + config.imagename + ' every ' + config.interval + " minutes.");
     }).catch(console.error);
 }
 
