@@ -9,7 +9,7 @@ module.exports = {
     initialize: function (discord) {
         discordClient = discord;
         init();
-    }, 
+    },
 
     start: function() {
         run();
@@ -27,7 +27,7 @@ function init() {
 
         console.log(' ID: ' + id + ' Username: ' + username + ' isAdmin: ' + isAdmin);
         sendMsg(discordClient, "Logged into DockerHub.\n" +
-            "Listening for updates to " + config.imageuser + '/' + config.imagename + ' every ' + config.interval + " seconds.");
+            "Listening for updates to " + config.imageuser + '/' + config.imagename + ' every ' + config.interval + " minutes.");
     }).catch(console.error);
 }
 
@@ -51,7 +51,7 @@ function run() {
                             config.imagename +
                             ' available on DockerHub.');
                     }
-            
+
                 })
                 .catch(console.error);
         },
@@ -66,4 +66,3 @@ function sendMsg(client, msg) {
 
     discordClient.guilds.get(server).channels.get(channel).send(msg);
 }
-
