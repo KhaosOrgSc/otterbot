@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "version": "node version patch"
+    "version": "npm version patch"
   },
   "pre-commit": [
     "version"
@@ -16,7 +16,8 @@
   "dependencies": {
     "discord.js": "^11.4.2",
     "docker-hub-api": "^0.6.0",
-    "hashmap": "^2.3.0"
+    "hashmap": "^2.3.0",
+    "version": "^0.1.2"
   },
   "devDependencies": {
     "pre-commit": "^1.2.2"
