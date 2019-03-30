@@ -19,7 +19,6 @@ function init() {
     dockerHubAPI.setLoginToken(config.loginToken);
 
     dockerHubAPI.loggedInUser().then(function (info) {
-        var loginToken = info.token;
         var id = info.id;
         var username = info.username;
         var isAdmin = info.is_admin;
