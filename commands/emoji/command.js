@@ -13,6 +13,9 @@ function showHelp(message) {
 var name = 'emoji';
 module.exports = {
     name: name,
+    initialize: function(config, discordClient) {
+
+    },
     canHandle: function(command) {
         return emoji.has(command) || name === command;
     },

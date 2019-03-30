@@ -1,14 +1,13 @@
 var dockerHubAPI = require('docker-hub-api');
 const Discord = require("discord.js");
-
-var config = require('../config.json').commands.dockerhub.imagenotify;
 var discordClient;
-
+var config;
 
 module.exports = {
-    initialize: function (discord) {
-        discordClient = discord;
-        init();
+    initialize: function (cfg, client) {
+        discordClient = client;
+        config = cfg;
+        init(config);
     }, 
 
     start: function() {
@@ -34,7 +33,7 @@ function init() {
 function run() {
     var lastUpdated;
     setInterval(function() {
-            dockerHubAPI.repository(config.imageuser, config.imagename).then(function(info) {
+        dockerHubAPI.repository(config.imageuser, config.imagename).then(function(info) {
                 var update = new Date(info.last_updated);
 
                 if (lastUpdated === undefined) {

@@ -1,15 +1,19 @@
-var emoji = require('./emoji/command')
-
-var items = [
-    emoji
-]
+var commands = [];
 
 module.exports = {
-    items: items,
+    initialize: function (config, discordClient) {
+        console.log('Initializing commands...');
+        for (let i = 0; i < config.length; ++i) {
+            console.log(`   ${config[i].name}`);
+            var cmd = require(`./${config[i].name}/command`);
+            cmd.initialize(config[i], discordClient);
+            commands.push(cmd);
+        }
+    },
     findHandler: function(command) {
-        for (let i = 0; i < items.length; ++i) {
-            if (items[i].canHandle(command)) {
-                return items[i];
+        for (let i = 0; i < commands.length; ++i) {
+            if (commands[i].canHandle(command)) {
+                return commands[i];
             }
         }
 
