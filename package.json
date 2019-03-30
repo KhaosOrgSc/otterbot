@@ -4,7 +4,8 @@
   "description": "OtterBot",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "postversion": "git push && git push --tags" 
   },
   "author": {
     "name": "LordMalloc"
