@@ -5,10 +5,11 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "version": "npm version patch"
+    "precommit": "npm version patch",
+    "postversion":  "git push && git push --tags" 
   },
   "pre-commit": [
-    "version"
+    "precommit"
   ],
   "author": {
     "name": "LordMalloc"
