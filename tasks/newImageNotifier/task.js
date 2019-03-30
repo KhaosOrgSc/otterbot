@@ -29,7 +29,6 @@ function init() {
     }).catch(console.error);
 }
 
-
 function run() {
     var lastUpdated;
     setInterval(function() {
