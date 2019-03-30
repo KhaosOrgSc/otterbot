@@ -1,12 +1,12 @@
 {
   "name": "otter-bot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "OtterBot",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "precommit": "npm version patch",
-    "postversion":  "git push && git push --tags" 
+    "postversion": "git push && git push --tags"
   },
   "pre-commit": [
     "precommit"
