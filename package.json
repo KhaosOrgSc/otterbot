@@ -4,21 +4,15 @@
   "description": "OtterBot",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "precommit": "npm version patch",
-    "postversion": "git push && git push --tags"
+    "start": "node app.js"
   },
-  "pre-commit": [
-    "precommit"
-  ],
   "author": {
     "name": "LordMalloc"
   },
   "dependencies": {
     "discord.js": "^11.4.2",
     "docker-hub-api": "^0.6.0",
-    "hashmap": "^2.3.0",
-    "version": "^0.1.2"
+    "hashmap": "^2.3.0"
   },
   "devDependencies": {
     "pre-commit": "^1.2.2"
