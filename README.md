@@ -32,9 +32,10 @@ docker pull khaosorg/otterbot
         "loginToken": "<Your Dockerhub Login Token Here>",
         "imageuser": "user to monitor",
         "imagename": "artifact to monitor",
-        "interval": 10, 
+        "interval": 10,
         "destServer": "<Discord server ID (Guild ID)>",
-        "destChannel": "<Discord channel ID>"
+        "destChannel": "<Discord channel ID>",
+        "tagFilter": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)$"
       }
     }
   }
@@ -44,14 +45,14 @@ docker pull khaosorg/otterbot
 imagenotify config:
 
 	This monitors Dockerhub checking for updates to a specific image as configured. Configuration details are as follows:
-  
+
 		loginToken : Dockerhub API login token in text form
-		imageuser : owner of the image to monitor, typically the part before the "/" in an image artifact reference 
+		imageuser : owner of the image to monitor, typically the part before the "/" in an image artifact reference
 		imagename : name of the artifact, typically the part after the "/" in an image artifact reference
 		interval : minutes between checks
-		destServer : Discord server ID (Guild ID). Notifications will be published here. 
+		destServer : Discord server ID (Guild ID). Notifications will be published here.
       To find this for your server, turn on Discord debug mode, and right click on the server. Select "Copy ID"
-		destChannel : Discord channel ID. Notifications will be published to this channel. 
+		destChannel : Discord channel ID. Notifications will be published to this channel.
       As above, to find this, turn on Discord debug mode, right click the channel, and select "Copy ID"
 
 3. Map your newly created config.json file to the docker volume;
