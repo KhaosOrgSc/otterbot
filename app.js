@@ -29,7 +29,6 @@ client.on('message', message => {
     if (handler) {
         handler.handle(args, message);
     }
-
 });
 
 function showHelp(message) {
