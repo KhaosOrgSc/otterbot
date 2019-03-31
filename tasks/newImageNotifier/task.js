@@ -38,7 +38,7 @@ function run() {
 
                 if (mostRecent === undefined)
                     return;
-                
+
                 var update = new Date(mostRecent.created);
 
                 if (lastUpdated === undefined) {
@@ -60,7 +60,7 @@ function run() {
                         .addField('DockerHub Page',
                             `https://cloud.docker.com/repository/registry-1.docker.io/${config.imageuser}/${config.imagename}/builds/${mostRecent.uuid}`);
 
-                    sendEmbed(embed);
+                    send(embed);
                 }
 
             })
@@ -74,13 +74,6 @@ function send(msg) {
     var channel = config.destChannel;
     
     discordClient.guilds.get(server).channels.get(channel).send(msg);
-}
-
-function sendEmbed(emb) {
-    var server = config.destServer;
-    var channel = config.destChannel;
-
-    discordClient.guilds.get(server).channels.get(channel).sendEmbed(emb);
 }
 
 function findMostRecentBuild(auditData, filter) {
