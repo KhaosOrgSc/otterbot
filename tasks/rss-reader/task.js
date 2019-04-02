@@ -48,6 +48,9 @@ function processRssData(maxUpdates) {
                 count++;
 
                 var entryUpdate = new Date(entry.pubDate);
+                if (entryUpdate === undefined)
+                    return;
+
                 if (lastUpdated === undefined || entryUpdate > lastUpdated) {
                     if (entryUpdate > currentBatchMostRecent)
                         currentBatchMostRecent = entryUpdate;
