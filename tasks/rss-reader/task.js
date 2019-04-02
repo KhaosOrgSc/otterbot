@@ -25,13 +25,14 @@ function init() {
 function run() {
     var lastUpdated;
     setInterval(function () {
-        processRssData();
+        processRssData(-1);
     }, config.interval * 60 * 1000);
 
-    processRssData();
+    send('Showing the most recent ' + config.initialUpdates + ' update(s).');
+    processRssData(config.initialUpdates);
 };
 
-function processRssData() {
+function processRssData(maxUpdates) {
     parser.parseURL(config.feedUrl,
         function (err, feed) {
             if (err != null) {
@@ -40,7 +41,12 @@ function processRssData() {
             }
 
             var currentBatchMostRecent = new Date(197, 01, 01, 0, 0, 0, 0);
+            var count = 0;
             feed.items.forEach(function (entry) {
+                if (maxUpdates > 0 && count >= maxUpdates)
+                    return;
+                count++;
+
                 var entryUpdate = new Date(entry.pubDate);
                 if (lastUpdated === undefined || entryUpdate > lastUpdated) {
                     if (entryUpdate > currentBatchMostRecent)
