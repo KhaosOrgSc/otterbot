@@ -65,4 +65,4 @@ imagenotify config:
 
 ##### Available Commands and more information.
 
-##### Coming Soon™
+##### Coming Sooner™
