@@ -1,10 +1,13 @@
 const Discord = require("discord.js");
 const Parser = require('rss-parser');
+const fs = require('fs');
 
 var discordClient;
 var config;
 var lastUpdated;
 var parser;
+var newsDb;
+var timestampPath;
 
 module.exports = {
     initialize: function (cfg, client) {
@@ -20,10 +23,43 @@ module.exports = {
 
 function init() {
     parser = new Parser();
+    var Datastore = require('nedb');
+    var sharedDir = '/shared/data';
+    if (config.sharedDir)
+        sharedDir = config.sharedDir;
+
+    newsDb = new Datastore({ filename: sharedDir + '/rss-reader.news', autoload: true });
+
+    timestampPath = sharedDir + '/rss.timestamp';
+
+    fs.access(timestampPath,
+        fs.constants.F_OK,
+        function(err) {
+            if (err) {
+                lastUpdated = new Date('1970-01-01Z00:00:00:000');
+                updateTimestamp(lastUpdated);
+            } else {
+                fs.readFile(timestampPath,
+                    {},
+                    function(err, data) {
+                        lastUpdated = new Date(data);
+                    });
+            }
+        });
+}
+
+function updateTimestamp(timestamp) {
+    lastUpdated = timestamp;
+    fs.writeFile(timestampPath, timestamp.toISOString(), function (err) {
+        if (err) {
+            return console.log(err);
+        }
+
+        console.log("Updated RSS Feed timestamp file.");
+    }); 
 }
 
 function run() {
-    var lastUpdated;
     setInterval(function () {
         processRssData(-1);
     }, config.interval * 60 * 1000);
@@ -32,44 +68,88 @@ function run() {
     processRssData(config.initialUpdates);
 };
 
+function loadDb(items) {
+
+    items.forEach(function(entry) {
+        if ( !('rsi' === entry.categories[0]))
+            return;
+
+        var content = entry.contentSnippet;
+        if (content.length > 1020)
+            content = content.substring(0, 1020) + "...";
+        var title = entry.title;
+        var creator = entry.creator;
+        var pubDate = new Date(entry.pubDate);
+        var url = entry.link;
+
+        newsDb.find({ title: title },
+            function(err, documents) {
+                if (documents === undefined || documents.length == 0) {
+                    console.log(`Did not find existing ${title} by ${creator} @ ${pubDate}. Inserting.`)
+                    newsDb.insert({
+                            title: title,
+                            content: content,
+                            creator: creator,
+                            pubDate: pubDate,
+                            url: url
+                        },
+                        function(err) {
+                            console.log(err);
+                        });
+                } else {
+                    // update
+                    newsDb.find({ title: title, pubDate: pubDate },
+                        function(err, documents) {
+                            if (documents != undefined && documents.length > 0)
+                                return;
+                            console.log(`Found updated ${title} by ${creator} @ ${pubDate}. Updating content.`)
+                            newsDb.update({ title: title },
+                                {
+                                    $set: {
+                                        content: content,
+                                        creator: creator,
+                                        pubDate: pubDate,
+                                        url: url
+                                    }
+                                },
+                                {},
+                                function(err) {
+                                    console.log(err);
+                                });
+
+                        });
+
+                }
+            });
+    });
+}
+
 function processRssData(maxUpdates) {
     parser.parseURL(config.feedUrl,
-        function (err, feed) {
+        function(err, feed) {
             if (err != null) {
                 console.log(err);
                 return;
             }
 
-            var currentBatchMostRecent = new Date(197, 01, 01, 0, 0, 0, 0);
-            var count = 0;
-            feed.items.forEach(function (entry) {
-                if (maxUpdates > 0 && count >= maxUpdates)
-                    return;
-                count++;
+            loadDb(feed.items);
 
-                var entryUpdate = new Date(entry.pubDate);
-                if (entryUpdate === undefined)
-                    return;
+            console.log(`Checking for news posted since ${lastUpdated}`);
+            newsDb.find({ pubDate: { $gt: lastUpdated } },
+                function(err, documents) {
+                    documents.forEach(function(item) {
+                        const embed = new Discord.RichEmbed()
+                            .setColor(0x00AE86)
+                            .setTitle(':newspaper: ' + item.title)
+                            .setURL(item.url)
+                            .addField(item.creator + ' @ ' + item.pubDate, item.content);
 
-                if (lastUpdated === undefined || entryUpdate > lastUpdated) {
-                    if (entryUpdate > currentBatchMostRecent)
-                        currentBatchMostRecent = entryUpdate;
+                        console.log(`Posting ${item.title} by ${item.creator} @ ${item.pubDate}`)
+                        send(embed);
+                    })
+                })
 
-                    var content = entry.contentSnippet;
-                    if (content.length > 1020)
-                        content = content.substring(0, 1020) + "...";
-
-                    const embed = new Discord.RichEmbed()
-                        .setColor(0x00AE86)
-                        .setTitle(':newspaper: ' + entry.title)
-                        .setURL(entry.link)
-                        .addField(entry.creator + ' @ ' + entry.pubDate,
-                            content);
-
-                    send(embed);
-                }
-            });
-            lastUpdated = currentBatchMostRecent;
+            updateTimestamp(new Date());
         });
 }
 
