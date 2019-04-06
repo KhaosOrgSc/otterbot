@@ -55,13 +55,17 @@ imagenotify config:
 		destChannel : Discord channel ID. Notifications will be published to this channel.
       As above, to find this, turn on Discord debug mode, right click the channel, and select "Copy ID"
 
-3. Map your newly created config.json file to the docker volume;
+3. Map your newly created config.json file to the docker volume; 
 
 ```
 /path/to/your/config.json:/usr/app/src/config.json
 ```
+4. Map the perstent data directory. OtterBot uses persistence to cache data, and this is where it will be stored
 
-4. Start your Docker container and enjoy the future of emojis!
+```
+/path/to/your/data/dir:/shared/data
+```
+5. Start your Docker container and enjoy the future of emojis!
 
 ##### Available Commands and more information.
 
