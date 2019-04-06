@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
 const Parser = require('rss-parser');
 const fs = require('fs');
 
@@ -13,7 +13,7 @@ module.exports = {
     initialize: function (cfg, client) {
         discordClient = client;
         config = cfg;
-        init(config);
+        init();
     },
 
     start: function () {
@@ -48,28 +48,24 @@ function init() {
         });
 }
 
+function run() {
+    setInterval(function () {
+        processRssData();
+    }, config.interval * 60 * 1000);
+
+    processRssData();
+};
+
 function updateTimestamp(timestamp) {
     lastUpdated = timestamp;
     fs.writeFile(timestampPath, timestamp.toISOString(), function (err) {
         if (err) {
             return console.log(err);
         }
-
-        console.log("Updated RSS Feed timestamp file.");
     }); 
 }
 
-function run() {
-    setInterval(function () {
-        processRssData(-1);
-    }, config.interval * 60 * 1000);
-
-    send('Showing the most recent ' + config.initialUpdates + ' update(s).');
-    processRssData(config.initialUpdates);
-};
-
 function loadDb(items) {
-
     items.forEach(function(entry) {
         if ( !('rsi' === entry.categories[0]))
             return;
@@ -124,7 +120,7 @@ function loadDb(items) {
     });
 }
 
-function processRssData(maxUpdates) {
+function processRssData() {
     parser.parseURL(config.feedUrl,
         function(err, feed) {
             if (err != null) {
