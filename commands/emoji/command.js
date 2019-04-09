@@ -63,6 +63,10 @@ emoji.set("hi5",
     [
         "https://i.imgur.com/zmrVQ0z.png"
     ]);
+emoji.set("whatislove",
+    [
+        "https://i.imgur.com/UFnSNlH.gif"
+    ]);
 
 
 //"https://i.imgur.com/0FU83u4.png", 
