@@ -34,7 +34,7 @@ client.on('message', message => {
 function showHelp(message) {
     var response = "Hello! I know about the following commands!\n";
     response += "Try \"" + config.prefix + " <command> help\" for more detailed help.\n";
-    commands.items.forEach(function (item) { 
+    config.modules.commands.forEach(function (item) { 
         response += "   " + item.name + "\n";
     });
 

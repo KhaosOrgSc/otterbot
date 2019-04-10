@@ -3,7 +3,7 @@ const Datastore = require('nedb');
 
 function showHelp(message) {
     var response = "I keep a watchful eye on chat!\n";
-    response += "use \"seen <user>\" to find when they were last around.";
+    response += "Use \"seen <user>\" to find when that user was last around.";
 
     message.channel.send(response);
 }
@@ -13,7 +13,7 @@ var lastSeenDb;
 
 module.exports = {
     name: name,
-    initialize: function(config, discordClient) {
+    initialize: function (config, discordClient) {
         discordClient.on('message', message => {
             lastSeenDb.update({ _id: message.author.toString() },
                 { $set: { timeStamp: new Date(), channel: message.channel.toString(), displayName: message.author.toString() } },
