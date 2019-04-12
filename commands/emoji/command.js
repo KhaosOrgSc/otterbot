@@ -67,6 +67,10 @@ emoji.set("whatislove",
     [
         "https://i.imgur.com/UFnSNlH.gif"
     ]);
+emoji.set("facepalm",
+    [
+        "https://cdn.discordapp.com/emojis/230334449135517697.png?v=1"
+    ]);
 
 
 //"https://i.imgur.com/0FU83u4.png", 
