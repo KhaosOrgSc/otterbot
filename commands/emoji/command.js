@@ -69,7 +69,7 @@ emoji.set("whatislove",
     ]);
 emoji.set("facepalm",
     [
-        "https://cdn.discordapp.com/emojis/230334449135517697.png?v=1"
+        "https://cdn.discordapp.com/emojis/230334449135517697.png"
     ]);
 
 
