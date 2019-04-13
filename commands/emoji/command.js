@@ -76,6 +76,21 @@ emoji.set("wink",
     [
         "https://i.imgur.com/0cz4yt6.png"
     ]);
+emoji.set("love",
+    [
+        "https://i.imgur.com/CJhywIp.png",
+        "https://i.imgur.com/DSHMUV2.png",
+        "https://i.imgur.com/HHP86XR.png",
+        "https://i.imgur.com/KJXn7iG.png",
+        "https://i.imgur.com/M5c0WIm.png",
+        "https://i.imgur.com/MaG4hFn.png",
+        "https://i.imgur.com/NRDEA4l.png",
+        "https://i.imgur.com/Oi1n2Fh.png"
+    ]);
+emoji.set("stuffed",
+    [
+        "https://i.imgur.com/DbdaI5n.png"
+    ]);
 
 
 //"https://i.imgur.com/0FU83u4.png", 
@@ -116,59 +131,101 @@ emoji.set("wink",
 //
 //"https://i.imgur.com/AuwR189.png", 
 //"https://i.imgur.com/B2z2nZ2.png", 
+//
+// Sleepy
 //"https://i.imgur.com/B4kliVk.png", 
+//
+//
 //"https://i.imgur.com/BLko6Hg.png", 
 //"https://i.imgur.com/Bbo6TLb.png", 
 //"https://i.imgur.com/BdUFUY0.png", 
+//
+// Overslept
 //"https://i.imgur.com/C8Fzfjn.png", 
-//"https://i.imgur.com/CEBayhE.png", 
-//"https://i.imgur.com/CJhywIp.png", 
-//"https://i.imgur.com/CaDrEQ1.png", 
+//
+// Dressup
+//"https://i.imgur.com/CaDrEQ1.png",
+//
+// 
 //"https://i.imgur.com/Cg9rdft.png", 
 //"https://i.imgur.com/DHBKpcD.png", 
+//
+// cleaning
 //"https://i.imgur.com/DHo32h7.png", 
-//"https://i.imgur.com/DSHMUV2.png", 
-//"https://i.imgur.com/DbdaI5n.png", 
-//"https://i.imgur.com/ETpnUWY.png", 
+//
+// 
+//"https://i.imgur.com/ETpnUWY.png",
+//
+// taxi
 //"https://i.imgur.com/FR9YTlM.png", 
+//
+// Line / queue
 //"https://i.imgur.com/FSkd0Ix.png", 
-//"https://i.imgur.com/Fa5ZJ78.png", 
+//
+//
+//"https://i.imgur.com/Fa5ZJ78.png",
+//
+// feast 
 //"https://i.imgur.com/Ga9ZBI0.png", 
+//
+//
 //"https://i.imgur.com/GtlisbT.png", 
+//
+// dead
 //"https://i.imgur.com/Gtsh8tp.png", 
-//"https://i.imgur.com/HHP86XR.png", 
+//
+//
 //"https://i.imgur.com/HSYcnpy.png", 
 //"https://i.imgur.com/ImtLOlW.png", 
 //"https://i.imgur.com/JOmhuMM.png", 
 //"https://i.imgur.com/JwQc4ls.png", 
 //"https://i.imgur.com/Jzu6tZV.png", 
 //"https://i.imgur.com/K6sIF7k.png", 
-//
-//"https://i.imgur.com/KJXn7iG.png", 
+// love dodge
 //"https://i.imgur.com/KU5QDYn.png", 
-//"https://i.imgur.com/KjxmmDX.png", 
+//
+//
+//"https://i.imgur.com/KjxmmDX.png",
+//
+//dance 
 //"https://i.imgur.com/KxmZ5ws.png", 
+//
+//feast
 //"https://i.imgur.com/LBceWJB.png", 
+//
+//
 //"https://i.imgur.com/LQOPdIx.png", 
-//"https://i.imgur.com/LfcOkav.png", 
+//"https://i.imgur.com/LfcOkav.png",
+//
+// I dont know what the fuck is going on here 
 //"https://i.imgur.com/LnRND9y.png", 
+//
+//
 //"https://i.imgur.com/LtkJhgg.png", 
-//"https://i.imgur.com/M5c0WIm.png", 
 //"https://i.imgur.com/MZuoBDa.png", 
-//"https://i.imgur.com/MaG4hFn.png", 
 //"https://i.imgur.com/McGl6fJ.png", 
 //"https://i.imgur.com/NCEjgWf.png", 
 //"https://i.imgur.com/NFvyMFI.png", 
 //"https://i.imgur.com/NPWcoaR.png", 
-//"https://i.imgur.com/NRDEA4l.png", 
 //"https://i.imgur.com/NkzGS1v.png", 
+//
+//tantrum
 //"https://i.imgur.com/O5f81PU.png", 
+//
+//
 //"https://i.imgur.com/OBVc2Oh.png", 
+//
+//backrub
 //"https://i.imgur.com/OCR1LY7.png", 
+//
+//
 //"https://i.imgur.com/OKdOpFb.png", 
+//
+//redcard
 //"https://i.imgur.com/OREPxgb.png", 
+//
+//
 //"https://i.imgur.com/ORheVnr.png", 
-//"https://i.imgur.com/Oi1n2Fh.png", 
 //"https://i.imgur.com/P6KFa3t.png", 
 //"https://i.imgur.com/PGqTnQh.png", 
 //"https://i.imgur.com/PU9xQ9r.png", 
