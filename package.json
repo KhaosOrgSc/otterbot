@@ -1,6 +1,6 @@
 {
   "name": "otter-bot",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "OtterBot",
   "main": "app.js",
   "scripts": {
