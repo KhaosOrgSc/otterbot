@@ -53,7 +53,8 @@ emoji.set("sleepy",
     ]);
 emoji.set("sad",
     [
-        "https://i.imgur.com/rmsECMl.png"
+        "https://i.imgur.com/rmsECMl.png",
+        "https://i.imgur.com/yBS4U0n.png"
     ]);
 emoji.set("tp",
     [
@@ -308,8 +309,7 @@ emoji.set("wink",
 //"https://i.imgur.com/xHnubaJ.png", 
 //"https://i.imgur.com/xUZVRXb.png", 
 //"https://i.imgur.com/xViec8N.png", 
-//"https://i.imgur.com/y3lR8BD.png", 
-//"https://i.imgur.com/yBS4U0n.png", 
+//"https://i.imgur.com/y3lR8BD.png",  
 //"https://i.imgur.com/ynqznKC.png", 
 //"https://i.imgur.com/zTXd4BM.png", 
 //
