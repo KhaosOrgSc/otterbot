@@ -71,6 +71,10 @@ emoji.set("facepalm",
     [
         "https://cdn.discordapp.com/emojis/230334449135517697.png"
     ]);
+emoji.set("wink",
+    [
+        "https://i.imgur.com/0cz4yt6.png"
+    ]);
 
 
 //"https://i.imgur.com/0FU83u4.png", 
@@ -78,7 +82,6 @@ emoji.set("facepalm",
 //"https://i.imgur.com/0KB4XfU.png", 
 //"https://i.imgur.com/0XoSPSo.png", 
 //"https://i.imgur.com/0bHXD81.png", 
-//"https://i.imgur.com/0cz4yt6.png", 
 //"https://i.imgur.com/1J3eMyc.png", 
 //
 //"https://i.imgur.com/1nrwBX3.png", 
