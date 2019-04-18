@@ -91,6 +91,10 @@ emoji.set("stuffed",
     [
         "https://i.imgur.com/DbdaI5n.png"
     ]);
+emoji.set("foilhat",
+    [    
+        "https://cdn.discordapp.com/attachments/468033427598344203/568415003238203392/tinfoil.jpg"
+    ]);
 
 
 //"https://i.imgur.com/0FU83u4.png", 
