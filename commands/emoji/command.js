@@ -95,7 +95,10 @@ emoji.set("foilhat",
     [    
         "https://cdn.discordapp.com/attachments/468033427598344203/568415003238203392/tinfoil.jpg"
     ]);
-
+emoji.set("tantrum",
+    [
+        "https://i.imgur.com/O5f81PU.png"
+    ]);
 
 //"https://i.imgur.com/0FU83u4.png", 
 //"https://i.imgur.com/0FoOrIl.png", 
@@ -212,10 +215,6 @@ emoji.set("foilhat",
 //"https://i.imgur.com/NFvyMFI.png", 
 //"https://i.imgur.com/NPWcoaR.png", 
 //"https://i.imgur.com/NkzGS1v.png", 
-//
-//tantrum
-//"https://i.imgur.com/O5f81PU.png", 
-//
 //
 //"https://i.imgur.com/OBVc2Oh.png", 
 //
