@@ -420,3 +420,4 @@ MigrationBackup/
 /data.json
 /token.txt
 /test.sh
+/crash_*.txt

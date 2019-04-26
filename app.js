@@ -6,6 +6,21 @@ const config = require("./config.json");
 var commands = require('./commands/commands.js');
 var tasks = require('./tasks/tasks.js');
 
+require('crashreporter').configure({
+    mailEnabled: true,
+    mailTransportName: 'SMTP',
+    mailTransportConfig: {
+        service: 'Gmail',
+        auth: {
+            user: config.crashreporter.mailuser,
+            pass: config.crashreporter.mailpassword
+        }
+    },
+    mailSubject: config.crashreporter.subject,
+    mailFrom: config.crashreporter.from,
+    mailTo: config.crashreporter.to
+});
+
 client.on("ready", () => {
     commands.initialize(config.modules.commands, client);
     tasks.initialize(config.modules.tasks, client);
