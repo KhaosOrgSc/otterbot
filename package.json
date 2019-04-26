@@ -16,6 +16,7 @@
     "docker-hub-api": "^0.6.0",
     "hashmap": "^2.3.0",
     "nedb": "^1.8.0",
+    "pkginfo": "^0.4.1",
     "rss-parser": "^3.7.0",
     "util": "^0.11.1"
   },

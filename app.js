@@ -5,6 +5,7 @@ const config = require("./config.json");
 
 var commands = require('./commands/commands.js');
 var tasks = require('./tasks/tasks.js');
+var pkginfo = require('pkginfo')(module, 'version');
 
 require('crashreporter').configure({
     mailEnabled: true,
@@ -26,7 +27,7 @@ client.on("ready", () => {
     tasks.initialize(config.modules.tasks, client);
 
     console.log('--------------------------------');
-    console.log(`Bot has started.`);
+    console.log(`OtterBot ${module.exports.version} has started.`);
 });
 
 client.on('message', message => {
